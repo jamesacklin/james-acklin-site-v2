@@ -27,6 +27,17 @@ const IndexPage = () => {
     }
   `);
 
+  function roleTagStyle(role) {
+    switch (role) {
+      case 'UX Designer':
+        return 'white bg-black';
+      case 'Freelance':
+        return 'white bg-gray';
+      default:
+        return 'black bg-white';
+    }
+  }
+
   return (
     <div>
       <Helmet
@@ -65,11 +76,9 @@ const IndexPage = () => {
               <td className="bt bw1 sans-serif f5 pa2 black">
                 {edge.node.data.Role_Work.sort().map((role) => (
                   <span
-                    className={`sans-serif f6 br-pill ba bw1 ph3 pv2 mb1 mr2 dib ${
-                      role === 'UX Designer'
-                        ? 'white bg-black'
-                        : 'black bg-white'
-                    }`}
+                    className={`sans-serif f6 br-pill ba bw1 ph3 pv2 mb1 mr2 dib ${roleTagStyle(
+                      role
+                    )}`}
                     key={role}
                   >
                     {role}
