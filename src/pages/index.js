@@ -112,11 +112,11 @@ const IndexPage = () => {
       <table className="collapse">
         <thead>
           <tr>
-            <td className="ph4 pv2 serif fw2 f4 black">Project</td>
-            <td className="ph4 pv2 serif fw2 f4 black">Client</td>
-            <td className="ph4 pv2 serif fw2 f4 black">Role</td>
-            <td className="ph4 pv2 serif fw2 f4 black">Start ▼</td>
-            <td className="ph4 pv2 serif fw2 f4 black">End</td>
+            <td className="ph4 pv3 serif fw2 f4 black">Project</td>
+            <td className="ph4 pv3 serif fw2 f4 black">Client</td>
+            <td className="ph4 pv3 serif fw2 f4 black">Role</td>
+            <td className="ph4 pv3 serif fw2 f4 black">Start ▼</td>
+            <td className="ph4 pv3 serif fw2 f4 black">End</td>
           </tr>
         </thead>
         <tbody>
