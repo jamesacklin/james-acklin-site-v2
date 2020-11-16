@@ -4,10 +4,3 @@
   font-style: 'normal';
   src: url('./GT-Alpina-Condensed-Light-Trial.woff2');
 }
-
-@font-face {
-  font-family: 'Alpina';
-  font-weight: 700;
-  font-style: 'normal';
-  src: url('./GT-Alpina-Condensed-Bold-Trial.woff2');
-}
