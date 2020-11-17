@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: '.env',
+});
+
 module.exports = {
   siteMetadata: {
     title: 'James Acklin',
@@ -9,7 +13,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-airtable',
       options: {
-        apiKey: 'keydNnKGA8F1uYPk9',
+        apiKey: process.env.GATSBY_AIRTABLE_KEY,
         tables: [
           {
             baseId: 'app2yGcuEqoxi3bIH',
