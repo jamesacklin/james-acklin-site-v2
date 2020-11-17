@@ -9,7 +9,7 @@ const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query ProjectQuery {
       allAirtable(
-        filter: { table: { eq: "Projects" } }
+        filter: { table: { eq: "Projects" }, data: { Hidden: { ne: true } } }
         sort: { fields: data___Start_Date, order: DESC }
       ) {
         edges {
@@ -28,6 +28,8 @@ const IndexPage = () => {
     }
   `);
 
+  const textClasses = 'serif f4 f3-m f3-l fw2 black';
+
   return (
     <div>
       <Helmet
@@ -43,25 +45,18 @@ const IndexPage = () => {
         ]}
       />
       <Banner />
-      <h2 className="serif fw2 ph4 pv2 f2 black">Index</h2>
-      <table className="collapse">
-        <thead>
-          <tr>
-            <td className="w-30 ph4 pv3 serif fw2 f3 black">Project</td>
-            <td className="w-20 ph4 pv3 serif fw2 f3 black">Client</td>
-            <td className="w-30 ph4 pv3 serif fw2 f3 black">Role</td>
-            <td className="w-10 ph4 pv3 serif fw2 f3 black">Start ▼</td>
-            <td className="w-10 ph4 pv3 serif fw2 f3 black">End</td>
-          </tr>
-        </thead>
-        <tbody>
-          {data.allAirtable.edges.map((edge) => (
-            <ProjectRow edge={edge} key={edge.node.id} />
-          ))}
-        </tbody>
-      </table>
-      <div className="pa4 serif fw2 f4 black bt">
-        Thank you, please come again
+      <div className="pa3 pa4-m pa4-l">
+        <h2 className="serif mt0 fw2 f3 f2-m f2-l">Professional Index</h2>
+        <div className="dn flex-l">
+          <div className={`${textClasses} w-30-l pv2-l`}>Project Name</div>
+          <div className={`${textClasses} w-30-l pv2-l`}>Client</div>
+          <div className={`${textClasses} w-30-l pv2-l`}>Roles</div>
+          <div className={`${textClasses} w-10-l pv2-l`}>Start Date</div>
+          <div className={`${textClasses} w-10-l pv2-l`}>End Date</div>
+        </div>
+        {data.allAirtable.edges.map((edge) => (
+          <ProjectRow edge={edge} key={edge.node.id} />
+        ))}
       </div>
     </div>
   );
