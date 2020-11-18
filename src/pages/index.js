@@ -2,6 +2,7 @@ import React from 'react';
 import 'tachyons';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import SEO from '../components/seo';
 import Banner from '../components/Banner';
 import ProjectRow from '../components/ProjectRow';
 
@@ -52,6 +53,7 @@ const IndexPage = () => {
 
   return (
     <div>
+      <SEO />
       <Helmet
         style={[
           {
