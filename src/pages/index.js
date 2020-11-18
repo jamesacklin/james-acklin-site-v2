@@ -18,7 +18,7 @@ const IndexPage = () => {
               Client
               Project_Name
               Role_Work
-              End_Date(formatString: "")
+              End_Date
               Start_Date
             }
             id
