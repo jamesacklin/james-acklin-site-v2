@@ -60,8 +60,9 @@ const IndexPage = () => {
             cssText: `
               @import url('/fonts/alpina.css');
               .serif {
-                font-family: "Alpina";
+                font-family: "Alpina", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol ;;
                 letter-spacing: -0.025em;
+                font-display: swap;
               }
             `,
           },

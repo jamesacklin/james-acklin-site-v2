@@ -23,8 +23,6 @@ const roleTagStyle = (role) => {
   switch (role) {
     case 'UX Designer':
       return `${base} white bg-black`;
-    case 'Freelance':
-      return `${base} silver bg-white`;
     default:
       return `${base} black bg-white`;
   }
@@ -49,13 +47,15 @@ const ProjectRow = (props) => {
           client.website ? (
             <a
               className={`${textClasses} underline`}
-              key={client}
+              key={client.name}
               href={client.website}
             >
               {client.name}
             </a>
           ) : (
-            <span className={`${textClasses}`}>{client.name}</span>
+            <span key={client.name} className={`${textClasses}`}>
+              {client.name}
+            </span>
           ),
         ])}
       </div>
