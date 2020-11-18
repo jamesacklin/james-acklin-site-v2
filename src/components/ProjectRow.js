@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react';
 
 const Row = (props) => {
   const { classes, children } = props;
-  const baseClasses = 'db flex-l mb3 mb4-m mb0-l lh-copy';
+  const baseClasses = 'db flex-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
   return <div className={`${baseClasses} ${classes}`}>{children}</div>;
 };
 
@@ -39,7 +39,7 @@ const ProjectRow = (props) => {
         <TimeAgo datetime={edge.node.data.Start_Date} />
         :&nbsp;
       </div>
-      <div className={`${textClasses} di db-l w-30-l pv2-l bt-l`}>
+      <div className={`${textClasses} di db-l w-30-l pv2-l pr3-l bt-l`}>
         {edge.node.data.Project_Name}
       </div>
       <span className={`${textClasses} di dn-l`}>&nbsp;for&nbsp;</span>

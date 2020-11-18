@@ -59,6 +59,7 @@ const IndexPage = () => {
               @import url('/fonts/alpina.css');
               .serif {
                 font-family: "Alpina";
+                letter-spacing: -0.025em;
               }
             `,
           },
