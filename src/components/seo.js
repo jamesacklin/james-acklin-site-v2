@@ -22,7 +22,7 @@ export default function SEO({ description, lang, meta }) {
           }
         }
       }
-    `
+    `,
   );
 
   const metaDescription = description || site.siteMetadata.description;

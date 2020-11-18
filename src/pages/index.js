@@ -60,9 +60,8 @@ const IndexPage = () => {
             cssText: `
               @import url('/fonts/alpina.css');
               .serif {
-                font-family: "Alpina", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol ;;
+                font-family: "Alpina", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
                 letter-spacing: -0.025em;
-                font-display: swap;
               }
             `,
           },
@@ -83,8 +82,7 @@ const IndexPage = () => {
             edge={edge}
             key={edge.node.id}
             clients={edge.node.data.Client.map(
-              // eslint-disable-next-line comma-dangle
-              (thisClient) => clientData[thisClient]
+              (thisClient) => clientData[thisClient],
             )}
           />
         ))}
