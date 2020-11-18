@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TimeAgo from 'timeago-react';
-import ClientLink from './ClientLink';
 
 const Row = (props) => {
   const { classes, children } = props;
@@ -32,7 +31,7 @@ const roleTagStyle = (role) => {
 };
 
 const ProjectRow = (props) => {
-  const { edge } = props;
+  const { edge, clients } = props;
   const textClasses = 'serif f4 f3-m f3-l fw2 black';
   return (
     <Row>
@@ -45,9 +44,19 @@ const ProjectRow = (props) => {
       </div>
       <span className={`${textClasses} di dn-l`}>&nbsp;for&nbsp;</span>
       <div className={`${textClasses} di db-l w-30-l pv2-l bt-l`}>
-        {edge.node.data.Client.map((client, i) => [
+        {clients.map((client, i) => [
           i > 0 && ', ',
-          <ClientLink key={client} clientId={client} />,
+          client.website ? (
+            <a
+              className={`${textClasses} underline`}
+              key={client}
+              href={client.website}
+            >
+              {client.name}
+            </a>
+          ) : (
+            <span className={`${textClasses}`}>{client.name}</span>
+          ),
         ])}
       </div>
       <div className="dn db-l w-30-l pv2-l bt-l">
@@ -73,6 +82,8 @@ const ProjectRow = (props) => {
 ProjectRow.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   edge: PropTypes.object.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  clients: PropTypes.array.isRequired,
 };
 
 export default ProjectRow;

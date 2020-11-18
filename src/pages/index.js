@@ -6,9 +6,9 @@ import Banner from '../components/Banner';
 import ProjectRow from '../components/ProjectRow';
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
+  const allData = useStaticQuery(graphql`
     query ProjectQuery {
-      allAirtable(
+      projects: allAirtable(
         filter: { table: { eq: "Projects" }, data: { Hidden: { ne: true } } }
         sort: { fields: data___Start_Date, order: DESC }
       ) {
@@ -25,8 +25,28 @@ const IndexPage = () => {
           }
         }
       }
+      clients: allAirtable(filter: { table: { eq: "Clients" } }) {
+        edges {
+          node {
+            data {
+              Client_Name
+              Website
+            }
+            recordId
+          }
+        }
+      }
     }
   `);
+
+  const projectData = allData.projects;
+
+  const clientData = allData.clients.edges.reduce((acc, value) => {
+    const { recordId, data } = value.node;
+    const newObj = { name: data.Client_Name, website: data.Website };
+    acc[recordId] = newObj;
+    return acc;
+  }, []);
 
   const textClasses = 'serif f4 f3-m f3-l fw2 black';
 
@@ -54,8 +74,15 @@ const IndexPage = () => {
           <div className={`${textClasses} w-10-l pv2-l`}>Start Date</div>
           <div className={`${textClasses} w-10-l pv2-l`}>End Date</div>
         </div>
-        {data.allAirtable.edges.map((edge) => (
-          <ProjectRow edge={edge} key={edge.node.id} />
+        {projectData.edges.map((edge) => (
+          <ProjectRow
+            edge={edge}
+            key={edge.node.id}
+            clients={edge.node.data.Client.map(
+              // eslint-disable-next-line comma-dangle
+              (thisClient) => clientData[thisClient]
+            )}
+          />
         ))}
       </div>
     </div>
