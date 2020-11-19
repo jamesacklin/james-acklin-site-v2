@@ -4,7 +4,8 @@ import TimeAgo from 'timeago-react';
 
 const Row = (props) => {
   const { classes, children } = props;
-  const baseClasses = 'db flex-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
+  const baseClasses =
+    'db flex-l items-center-l bt-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
   return <div className={`${baseClasses} ${classes}`}>{children}</div>;
 };
 
@@ -37,11 +38,11 @@ const ProjectRow = (props) => {
         <TimeAgo datetime={edge.node.data.Start_Date} />
         :&nbsp;
       </div>
-      <div className={`${textClasses} di db-l w-30-l pv2-l pr3-l bt-l`}>
+      <div className={`${textClasses} di db-l w-30-l pv2-l ph2-l`}>
         {edge.node.data.Project_Name}
       </div>
       <span className={`${textClasses} di dn-l`}>&nbsp;for&nbsp;</span>
-      <div className={`${textClasses} di db-l w-30-l pv2-l bt-l`}>
+      <div className={`${textClasses} di db-l w-30-l pv2-l`}>
         {clients.map((client, i) => [
           i > 0 && ', ',
           client.website ? (
@@ -59,7 +60,7 @@ const ProjectRow = (props) => {
           ),
         ])}
       </div>
-      <div className="dn db-l w-30-l pv2-l bt-l">
+      <div className="dn db-l w-30-l pv2-l">
         {edge.node.data.Role_Work.sort().map((role) => (
           <span className={roleTagStyle(role)} key={role}>
             {role}
@@ -69,10 +70,10 @@ const ProjectRow = (props) => {
       <span className={`${textClasses} dn-l`}>
         {edge.node.data.End_Date ? '' : ' (Ongoing)'}
       </span>
-      <div className={`${textClasses} dn db-l w-10-l pv2-l bt-l`}>
+      <div className={`${textClasses} dn db-l w-10-l pv2-l`}>
         {edge.node.data.Start_Date}
       </div>
-      <div className={`${textClasses} dn db-l w-10-l pv2-l bt-l`}>
+      <div className={`${textClasses} dn db-l w-10-l pv2-l`}>
         {edge.node.data.End_Date ? edge.node.data.End_Date : 'Ongoing'}
       </div>
     </Row>

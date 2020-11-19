@@ -71,7 +71,9 @@ const IndexPage = () => {
       <div className="pa3 pa4-m pa4-l">
         <h2 className="serif mt0 fw2 f3 f2-m f2-l">Professional Index</h2>
         <div className="dn flex-l">
-          <div className={`${textClasses} w-30-l pv2-l`}>Project Name</div>
+          <div className={`${textClasses} w-30-l pv2-l ph2-l`}>
+            Project Name
+          </div>
           <div className={`${textClasses} w-30-l pv2-l`}>Client</div>
           <div className={`${textClasses} w-30-l pv2-l`}>Roles</div>
           <div className={`${textClasses} w-10-l pv2-l`}>Start Date</div>
