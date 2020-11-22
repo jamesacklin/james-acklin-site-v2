@@ -8,11 +8,12 @@ const Banner = () => (
         james@ackl.in
       </a>
     </p>
-    <p className="measure lh-copy">
+    <p className="tj measure lh-copy">
       Thanks for stopping by. I’m a senior user experience designer with web
-      development and audio production backgrounds in Pittsburgh, USA.
+      development and audio production backgrounds in Pittsburgh, Pennsylvania,
+      USA.
     </p>
-    <p className="measure lh-copy">
+    <p className="tj measure lh-copy">
       Professionally, I work on design systems and a broad category of machine
       learning-assisted products for{' '}
       <a
@@ -33,14 +34,14 @@ const Banner = () => (
       <a className="black underline" href="https://www.smithbrosagency.com/">
         Smith Brothers
       </a>
-      . Occasionally, I still do some compulsory front-end development
+      . Occasionally, I still do some compulsory front-end web development
       (preferably in ClojureScript; frequently in React).
     </p>
-    <p className="measure lh-copy">
+    <p className="tj measure lh-copy">
       Personally, I ride road bikes and hike; currently I’m teaching myself
       Blender and Unity.
     </p>
-    I am active elsewhere:
+    I’m active elsewhere:
     <ul className="lh-copy mb0">
       <li>
         <a
