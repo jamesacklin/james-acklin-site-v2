@@ -5,7 +5,7 @@ import TimeAgo from 'timeago-react';
 const Row = (props) => {
   const { classes, children } = props;
   const baseClasses =
-    'db flex-l items-baseline-l bt-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
+    'db flex-l flex-wrap-l items-baseline-l bt-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
   return <div className={`${baseClasses} ${classes}`}>{children}</div>;
 };
 
@@ -42,7 +42,7 @@ const ProjectRow = (props) => {
         {edge.node.data.Project_Name}
       </div>
       <span className={`${textClasses} di dn-l`}>&nbsp;for&nbsp;</span>
-      <div className={`${textClasses} di db-l w-30-l pv2-l`}>
+      <div className={`${textClasses} di db-l w-20-l pv2-l`}>
         {clients.map((client, i) => [
           i > 0 && ', ',
           client.website ? (
@@ -75,6 +75,24 @@ const ProjectRow = (props) => {
       </div>
       <div className={`${textClasses} dn db-l w-10-l pv2-l`}>
         {edge.node.data.End_Date ? edge.node.data.End_Date : 'Ongoing'}
+      </div>
+      <div className={`w-100 pa2-l flex-l`}>
+        <div className={`w-30-l`}>
+          <p className={`${textClasses} tj lh-copy measure`}>
+            Challenge: {edge.node.data.Challenge}
+          </p>
+          <p className={`${textClasses} tj lh-copy measure`}>
+            Result: {edge.node.data.Result}
+          </p>
+          <p className={`${textClasses} tj lh-copy measure`}>
+            Tools &amp; Tech:{' '}
+            {edge.node.data.Tools___Tech.map((tool, i) => [
+              i > 0 && ', ',
+              <span>{tool}</span>,
+            ])}
+          </p>
+        </div>
+        <div className={`w-30-l`}></div>
       </div>
     </Row>
   );

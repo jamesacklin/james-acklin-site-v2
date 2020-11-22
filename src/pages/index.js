@@ -21,6 +21,9 @@ const IndexPage = () => {
               Role_Work
               End_Date
               Start_Date
+              Challenge
+              Result
+              Tools___Tech
             }
             id
           }
@@ -81,7 +84,7 @@ const IndexPage = () => {
           <div className={`${textClasses} w-30-l pv2-l ph2-l`}>
             Project Name
           </div>
-          <div className={`${textClasses} w-30-l pv2-l`}>Client</div>
+          <div className={`${textClasses} w-20-l pv2-l`}>Client</div>
           <div className={`${textClasses} w-30-l pv2-l`}>Roles</div>
           <div className={`${textClasses} w-10-l pv2-l`}>Start Date</div>
           <div className={`${textClasses} w-10-l pv2-l`}>End Date</div>
