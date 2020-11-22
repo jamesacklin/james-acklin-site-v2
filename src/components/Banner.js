@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Banner = () => (
-  <div className="pa3 pa4-m pa4-l serif fw2 f4 f3-m f3-l">
-    <h1 className="fw2 pb2 mt0 f3 f2-m f2-l">James Acklin</h1>
+  <div className="pa3 pa4-m pa4-l serif fw2 f5 f4-m f4-l">
+    <h1 className="fw2 pb2 mt0 f4 f3-m f3-l">James Acklin</h1>
     <p>
       <a className="black underline" href="mailto:james@ackl.in">
         james@ackl.in
@@ -60,7 +60,9 @@ const Banner = () => (
           GitHub
         </a>
       </li>
-      <li>~rilfun-lidlen</li>
+      <li>
+        <sub>~</sub>rilfun-lidlen
+      </li>
     </ul>
   </div>
 );

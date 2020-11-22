@@ -5,7 +5,7 @@ import TimeAgo from 'timeago-react';
 const Row = (props) => {
   const { classes, children } = props;
   const baseClasses =
-    'db flex-l items-center-l bt-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
+    'db flex-l items-baseline-l bt-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
   return <div className={`${baseClasses} ${classes}`}>{children}</div>;
 };
 
@@ -20,7 +20,7 @@ Row.propTypes = {
 };
 
 const roleTagStyle = (role) => {
-  const base = 'serif f5 f4-l fw2 br-pill ba bw1 ph3 pv2 mt1 mr1 mr2-l dib ';
+  const base = 'sans-serif f5 f6-l fw2 br-pill ba ph3 pv2 mt1 mr1 mr2-l dib ';
   switch (role) {
     case 'UX Designer':
       return `${base} white bg-black`;
@@ -31,7 +31,7 @@ const roleTagStyle = (role) => {
 
 const ProjectRow = (props) => {
   const { edge, clients } = props;
-  const textClasses = 'serif f4 f3-m f3-l fw2 black';
+  const textClasses = 'serif f5 f4-m f4-l fw2 black';
   return (
     <Row>
       <div className={`${textClasses} di dn-l`}>

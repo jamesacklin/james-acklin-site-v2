@@ -49,7 +49,7 @@ const IndexPage = () => {
     return acc;
   }, []);
 
-  const textClasses = 'serif f4 f3-m f3-l fw2 black';
+  const textClasses = 'serif f5 f4-m f4-l fw2 black';
 
   return (
     <div>
@@ -58,10 +58,17 @@ const IndexPage = () => {
         style={[
           {
             cssText: `
-              @import url('/fonts/alpina.css');
+              @import url('/fonts/cmun-serif.css');
+              * {
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+              }
               .serif {
-                font-family: "Alpina", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-                letter-spacing: -0.025em;
+                font-family: "Computer Modern Serif", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
               }
             `,
           },
@@ -69,7 +76,7 @@ const IndexPage = () => {
       />
       <Banner />
       <div className="pa3 pa4-m pa4-l">
-        <h2 className="serif mt0 fw2 f3 f2-m f2-l">Professional Index</h2>
+        <h2 className="serif mt0 fw2 f4 f3-m f3-l">Professional Index</h2>
         <div className="dn flex-l">
           <div className={`${textClasses} w-30-l pv2-l ph2-l`}>
             Project Name
