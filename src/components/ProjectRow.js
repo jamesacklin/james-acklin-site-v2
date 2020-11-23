@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import TimeAgo from 'timeago-react';
 
 const Row = (props) => {
-  const { classes, children } = props;
+  const { classes, children, onClick } = props;
   const baseClasses =
-    'db flex-l items-baseline-l bt-l mb3 mb4-m mb0-l lh-copy lh-solid-l';
-  return <div className={`${baseClasses} ${classes}`}>{children}</div>;
+    `border-box lh-copy pointer db ` +
+    `pv3 ph4 pv2-l ` +
+    `flex-l flex-wrap-l items-baseline-l bt-l `;
+  return (
+    <div onClick={onClick} className={`${baseClasses} ${classes}`}>
+      {children}
+    </div>
+  );
 };
 
 Row.defaultProps = {
@@ -20,7 +26,7 @@ Row.propTypes = {
 };
 
 const roleTagStyle = (role) => {
-  const base = 'sans-serif f5 f6-l fw2 br-pill ba ph3 pv2 mt1 mr1 mr2-l dib ';
+  const base = 'sans-serif br-pill ba ph3 pv2 lh-solid mt1 mr1 mr2-l dib f6 b';
   switch (role) {
     case 'UX Designer':
       return `${base} white bg-black`;
@@ -31,18 +37,20 @@ const roleTagStyle = (role) => {
 
 const ProjectRow = (props) => {
   const { edge, clients } = props;
-  const textClasses = 'serif f5 f4-m f4-l fw2 black';
+  const textClasses = 'mono black';
+  const [showDetails, setShowDetails] = useState(false);
+  const toggleDetails = () => setShowDetails(!showDetails);
   return (
-    <Row>
+    <Row onClick={toggleDetails} classes={showDetails && `row-outline`}>
       <div className={`${textClasses} di dn-l`}>
         <TimeAgo datetime={edge.node.data.Start_Date} />
         :&nbsp;
       </div>
-      <div className={`${textClasses} di db-l w-30-l pv2-l ph2-l`}>
+      <div className={`${textClasses} di db-l w-30-l pv2-l pr2-l`}>
         {edge.node.data.Project_Name}
       </div>
       <span className={`${textClasses} di dn-l`}>&nbsp;for&nbsp;</span>
-      <div className={`${textClasses} di db-l w-30-l pv2-l`}>
+      <div className={`${textClasses} di db-l w-20-l pv2-l pr2-l`}>
         {clients.map((client, i) => [
           i > 0 && ', ',
           client.website ? (
@@ -50,6 +58,7 @@ const ProjectRow = (props) => {
               className={`${textClasses} underline`}
               key={client.name}
               href={client.website}
+              onClick={(e) => e.stopPropagation()}
             >
               {client.name}
             </a>
@@ -70,12 +79,46 @@ const ProjectRow = (props) => {
       <span className={`${textClasses} dn-l`}>
         {edge.node.data.End_Date ? '' : ' (Ongoing)'}
       </span>
-      <div className={`${textClasses} dn db-l w-10-l pv2-l`}>
+      <div className={`${textClasses} dn db-l w-10-l pv2-l pr2-l`}>
         {edge.node.data.Start_Date}
       </div>
       <div className={`${textClasses} dn db-l w-10-l pv2-l`}>
         {edge.node.data.End_Date ? edge.node.data.End_Date : 'Ongoing'}
       </div>
+      {showDetails && (
+        <div className={`w-100 flex-l`}>
+          <div className={`w-30-l pr2-l`}>
+            {edge.node.data.Challenge ? (
+              <p className={`${textClasses} lh-copy measure`}>
+                Challenge: {edge.node.data.Challenge}
+              </p>
+            ) : (
+              <></>
+            )}
+            {edge.node.data.Result ? (
+              <p className={`${textClasses} lh-copy measure`}>
+                Result: {edge.node.data.Result}
+              </p>
+            ) : (
+              <p className={`${textClasses} lh-copy measure`}>
+                Currently ongoing.
+              </p>
+            )}
+            {edge.node.data.Tools___Tech ? (
+              <p className={`${textClasses} lh-copy measure mb0 mb3-l`}>
+                Tools &amp; Tech:{' '}
+                {edge.node.data.Tools___Tech.map((tool, i) => [
+                  i > 0 && ', ',
+                  <span>{tool}</span>,
+                ])}
+              </p>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className={`w-30-l`}></div>
+        </div>
+      )}
     </Row>
   );
 };

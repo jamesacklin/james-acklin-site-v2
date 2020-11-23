@@ -21,6 +21,9 @@ const IndexPage = () => {
               Role_Work
               End_Date
               Start_Date
+              Challenge
+              Result
+              Tools___Tech
             }
             id
           }
@@ -49,7 +52,7 @@ const IndexPage = () => {
     return acc;
   }, []);
 
-  const textClasses = 'serif f5 f4-m f4-l fw2 black';
+  const textClasses = 'mono black';
 
   return (
     <div>
@@ -58,7 +61,7 @@ const IndexPage = () => {
         style={[
           {
             cssText: `
-              @import url('/fonts/cmun-serif.css');
+              @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@200&display=swap');
               * {
                 text-rendering: optimizeLegibility;
                 -webkit-font-smoothing: antialiased;
@@ -67,23 +70,44 @@ const IndexPage = () => {
                 -ms-hyphens: auto;
                 hyphens: auto;
               }
-              .serif {
-                font-family: "Computer Modern Serif", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+              .mono {
+                font-family: 'IBM Plex Mono', 'Cascadia Mono', 'SFMono-Regular',
+                             Consolas, 'Liberation Mono', Menlo, Courier,
+                             monospace;
+              }
+              .sans-serif {
+                font-family: 'Public Sans', -apple-system, BlinkMacSystemFont,
+                             'avenir next', avenir, 'helvetica neue', helvetica,
+                              ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+                font-kerning: normal;
+              }
+              .row-outline {
+                border-color: transparent;
+                box-shadow: 0.25em 0 0 #000 inset, 
+                            0 0.25em 0 #000 inset, 
+                            -0.25em 0 0 #000 inset, 
+                            0 -0.25em 0 #000 inset;
+              }
+              .row-outline + .row-outline {
+                box-shadow: 0.25em 0 0 #000 inset, 
+                             
+                            -0.25em 0 0 #000 inset, 
+                            0 -0.25em 0 #000 inset;
               }
             `,
           },
         ]}
       />
       <Banner />
-      <div className="pa3 pa4-m pa4-l">
-        <h2 className="serif mt0 fw2 f4 f3-m f3-l">Professional Index</h2>
-        <div className="dn flex-l">
-          <div className={`${textClasses} w-30-l pv2-l ph2-l`}>
-            Project Name
-          </div>
-          <div className={`${textClasses} w-30-l pv2-l`}>Client</div>
+      <div className="">
+        <h2 className="sans-serif mt0 reset ph3 ph4-m ph4-l">
+          Professional Index
+        </h2>
+        <div className="dn flex-l ph3 ph4-m ph4-l">
+          <div className={`${textClasses} w-30-l pv2-l`}>Project Name</div>
+          <div className={`${textClasses} w-20-l pv2-l`}>Client</div>
           <div className={`${textClasses} w-30-l pv2-l`}>Roles</div>
-          <div className={`${textClasses} w-10-l pv2-l`}>Start Date</div>
+          <div className={`${textClasses} w-10-l pv2-l pr2-l`}>Start Date</div>
           <div className={`${textClasses} w-10-l pv2-l`}>End Date</div>
         </div>
         {projectData.edges.map((edge) => (
