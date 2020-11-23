@@ -1,19 +1,19 @@
 import React from 'react';
 
 const Banner = () => (
-  <div className="pa3 pa4-m pa4-l serif fw2 f5 f4-m f4-l">
-    <h1 className="fw2 pb2 mt0 f4 f3-m f3-l">James Acklin</h1>
+  <div className="pa3 pa4-m pa4-l mono">
+    <h1 className="sans-serif pb2 mt0">James Acklin</h1>
     <p>
       <a className="black underline" href="mailto:james@ackl.in">
         james@ackl.in
       </a>
     </p>
-    <p className="tj measure lh-copy">
+    <p className="measure lh-copy">
       Thanks for stopping by. I’m a senior user experience designer with web
       development and audio production backgrounds in Pittsburgh, Pennsylvania,
       USA.
     </p>
-    <p className="tj measure lh-copy">
+    <p className="measure lh-copy">
       Professionally, I work on design systems and a broad category of machine
       learning-assisted products for{' '}
       <a
@@ -37,7 +37,7 @@ const Banner = () => (
       . Occasionally, I still do some compulsory front-end web development
       (preferably in ClojureScript; frequently in React).
     </p>
-    <p className="tj measure lh-copy">
+    <p className="measure lh-copy">
       Personally, I ride road bikes and hike; currently I’m teaching myself
       Blender and Unity.
     </p>
@@ -61,9 +61,7 @@ const Banner = () => (
           GitHub
         </a>
       </li>
-      <li>
-        <sub>~</sub>rilfun-lidlen
-      </li>
+      <li>~rilfun-lidlen</li>
     </ul>
   </div>
 );
