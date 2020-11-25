@@ -3,6 +3,7 @@ const fs = require('fs');
 const streamPipeline = util.promisify(require('stream').pipeline);
 const fetch = require('node-fetch');
 const path = require('path');
+const dither = require('./dither.js');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -21,6 +22,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             data {
               Imagery {
                 filename
+                type
                 url
               }
             }
@@ -47,9 +49,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 response.body,
                 fs.createWriteStream(imgPath),
               );
+              dither(image.filename);
             }
-
-            download();
+            if (image.type === 'image/png') {
+              download();
+            }
           });
         }
       });
