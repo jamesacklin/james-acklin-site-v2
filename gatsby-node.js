@@ -1,34 +1,15 @@
+const util = require('util');
 const fs = require('fs');
-const https = require('https');
+const streamPipeline = util.promisify(require('stream').pipeline);
+const fetch = require('node-fetch');
 const path = require('path');
-const del = require('del');
-
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   const imageryPublicPath = path.resolve(process.cwd(), 'public/imagery');
   var exists = fs.existsSync(imageryPublicPath);
-  if (exists) {
-    async () => {
-      try {
-        await del(imageryPublicPath);
-        console.log('deleted public imagery directory');
-        fs.mkdirSync(imageryPublicPath);
-      } catch (err) {
-        console.error(
-          'there was an error deleting the public imagery directory',
-        );
-      }
-    };
-  } else {
+  if (!exists) {
     fs.mkdirSync(imageryPublicPath);
   }
 
@@ -39,8 +20,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nodes {
             data {
               Imagery {
-                url
                 filename
+                url
               }
             }
           }
@@ -53,25 +34,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       data.allAirtable.nodes.map((node) => {
         if (node.data.Imagery !== null) {
-          node.data.Imagery.map((image, i) => {
+          node.data.Imagery.map((image) => {
             const imgPath = path.resolve(
               process.cwd(),
               'public/imagery',
               `${image.filename}`,
             );
 
-            const request = https.get(image.url, (res) => {
-              let imageData = '';
-              res.setEncoding('binary');
-              res.on('data', (chunk) => {
-                imageData += chunk;
-              });
-              res.on('end', () => {
-                fs.writeFileSync(imgPath, imageData, 'binary');
-              });
-            });
+            async function download() {
+              const response = await fetch(image.url);
+              await streamPipeline(
+                response.body,
+                fs.createWriteStream(imgPath),
+              );
+            }
 
-            // fs.writeFileSync(imgPath, Buffer, 'binary');
+            download();
           });
         }
       });
