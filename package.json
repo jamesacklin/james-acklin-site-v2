@@ -26,6 +26,7 @@
     "unified": "^9.2.0"
   },
   "devDependencies": {
+    "del": "^6.0.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.15.0",
