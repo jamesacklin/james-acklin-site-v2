@@ -1,9 +1,9 @@
 'use strict';
 
-const DitherJS = require('ditherjs/server');
-const fs = require('fs');
-const find = require('find');
-const sharp = require('sharp');
+var DitherJS = require('ditherjs/server');
+var fs = require('fs');
+var find = require('find');
+var sharp = require('sharp');
 
 function dither(img) {
   let options = {
@@ -14,19 +14,21 @@ function dither(img) {
     ],
     algorithm: 'atkinson',
   };
-  const ditherjs = new DitherJS(options);
-  const imageList = [];
+  var ditherjs = new DitherJS(options);
+  var imageList = [];
   imageList.push(img);
   imageList.forEach((imageName) => {
     const pathList = find.fileSync(new RegExp(imageName), './public/imagery');
     pathList.forEach(async (path) => {
-      const resizedFile = await sharp(path)
+      var resizedImg = await sharp(path)
         .flatten({ background: { r: 255, g: 255, b: 255 } })
-        .toColorspace('b-w')
+        .grayscale()
         .normalize()
-        .resize({ height: 500 })
+        .resize({ height: 300 })
+        .png()
         .toBuffer();
-      fs.writeFileSync(path, ditherjs.dither(resizedFile, options));
+      var ditheredImg = ditherjs.dither(resizedImg, options);
+      fs.writeFileSync(path, ditheredImg);
     });
   });
 }
