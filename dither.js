@@ -1,28 +1,32 @@
-const DitherJS = require('ditherjs/server');
+'use strict';
 
-var fs = require('fs');
-var find = require('find');
+const DitherJS = require('ditherjs/server');
+const fs = require('fs');
+const find = require('find');
+const sharp = require('sharp');
 
 function dither(img) {
   let options = {
-    step: 3, // The step for the pixel quantization n = 1,2,3...
+    step: 1,
     palette: [
       [0, 0, 0],
       [255, 255, 255],
-    ], // an array of colors as rgb arrays
-    algorithm: 'atkinson', // one of ["ordered", "diffusion", "atkinson"]
+    ],
+    algorithm: 'atkinson',
   };
-
   const ditherjs = new DitherJS(options);
-
-  let imageList = [];
+  const imageList = [];
   imageList.push(img);
-
   imageList.forEach((imageName) => {
     const pathList = find.fileSync(new RegExp(imageName), './public/imagery');
-    pathList.forEach((path) => {
-      let file = fs.readFileSync(path);
-      fs.writeFileSync(path, ditherjs.dither(file, options));
+    pathList.forEach(async (path) => {
+      const resizedFile = await sharp(path)
+        .flatten({ background: { r: 255, g: 255, b: 255 } })
+        .toColorspace('b-w')
+        .normalize()
+        .resize({ height: 500 })
+        .toBuffer();
+      fs.writeFileSync(path, ditherjs.dither(resizedFile, options));
     });
   });
 }

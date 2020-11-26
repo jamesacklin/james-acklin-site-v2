@@ -51,7 +51,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               );
               dither(image.filename);
             }
-            if (image.type === 'image/png') {
+            if (image.type !== 'application/pdf') {
               download();
             }
           });
