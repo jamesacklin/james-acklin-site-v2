@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Banner = () => (
-  <div className="pa3 pa4-m pa4-l mono">
-    <h1 className="sans-serif pb2 mt0">James Acklin</h1>
+  <div className="pa3 pa4-m pa4-l sans-serif bg-black white">
+    <h1 className="sans-serif pb2 mt0 f5 normal">James Acklin</h1>
     <p>
-      <a className="black underline" href="mailto:james@ackl.in">
+      <a className="white underline" href="mailto:james@ackl.in">
         james@ackl.in
       </a>
     </p>
@@ -17,21 +17,21 @@ const Banner = () => (
       Professionally, I work on design systems and a broad category of machine
       learning-assisted products for{' '}
       <a
-        className="black underline"
+        className="white underline"
         href="https://www.nielsen.com/us/en/solutions/nielsen-global-media/"
       >
         Nielsen Global Media
       </a>{' '}
       (NYC, USA) and media planning software for{' '}
-      <a className="black underline" href="https://pointlogic.com/">
+      <a className="white underline" href="https://pointlogic.com/">
         PointLogic
       </a>{' '}
       (Rotterdam, NL). Before this, I designed mapping software for{' '}
-      <a className="black underline" href="https://www.rhiza.com/">
+      <a className="white underline" href="https://www.rhiza.com/">
         Rhiza
       </a>{' '}
       and made frozen food websites for{' '}
-      <a className="black underline" href="https://www.smithbrosagency.com/">
+      <a className="white underline" href="https://www.smithbrosagency.com/">
         Smith Brothers
       </a>
       . Occasionally, I still do some compulsory front-end web development
@@ -45,7 +45,7 @@ const Banner = () => (
     <ul className="lh-copy mb0">
       <li>
         <a
-          className="black underline"
+          className="white underline"
           href="https://are.na/james-acklin/"
           rel="external"
         >
@@ -54,7 +54,7 @@ const Banner = () => (
       </li>
       <li>
         <a
-          className="black underline"
+          className="white underline"
           href="https://www.github.com/jamesacklin/"
           rel="external"
         >

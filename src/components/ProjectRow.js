@@ -26,7 +26,7 @@ Row.propTypes = {
 };
 
 const roleTagStyle = (role) => {
-  const base = 'sans-serif br-pill ba ph3 pv2 lh-solid mt1 mr1 mr2-l dib f6 b';
+  const base = 'sans-serif br-pill ba ph3 pv2 lh-solid mt1 mr1 mr2-l dib f6';
   switch (role) {
     case 'UX Designer':
       return `${base} white bg-black`;
@@ -37,7 +37,7 @@ const roleTagStyle = (role) => {
 
 const ProjectRow = (props) => {
   const { edge, clients } = props;
-  const textClasses = 'mono black';
+  const textClasses = 'sans-serif black';
   const [showDetails, setShowDetails] = useState(false);
   const toggleDetails = () => setShowDetails(!showDetails);
   return (
@@ -90,14 +90,14 @@ const ProjectRow = (props) => {
           <div className={`w-30-l pr2-l`}>
             {edge.node.data.Challenge ? (
               <p className={`${textClasses} lh-copy measure`}>
-                Challenge: {edge.node.data.Challenge}
+                {edge.node.data.Challenge}
               </p>
             ) : (
               <></>
             )}
             {edge.node.data.Result ? (
               <p className={`${textClasses} lh-copy measure`}>
-                Result: {edge.node.data.Result}
+                {edge.node.data.Result}
               </p>
             ) : (
               <p className={`${textClasses} lh-copy measure`}>
