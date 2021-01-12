@@ -33,7 +33,7 @@ const CvPage = () => {
           <h2 className={hed}>Introduction</h2>
           <p className={graf}>
             I am a designer-developer hybrid with over a decade of professional
-            experience. I thrive in pro-complexity UX vacuums. My design
+            experience who thrives in pro-complexity UX vacuums. My design
             practice concentrates on low- and high-fidelity prototyping, design
             systems, interactions for data visualizations, and comprehensive,
             actionable specifications. I take great joy in implementing design
@@ -122,8 +122,8 @@ const CvPage = () => {
             November 2015 - January 2017
           </h3>
           <p className={job}>
-            Designed and helped build a general-purpose data analytics platform
-            for geospatial analysis with a generalizable approach to dataset
+            Designed and helped build a data visualization platform for
+            geospatial analysis with a generalizable approach to data
             exploration and user-configurable workflows. Conducted field
             research and user interviews for early concept validation, iterative
             improvements, and usability enhancements. Exit by acquisition in
