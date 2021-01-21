@@ -38,6 +38,9 @@ const Banner = () => (
       (preferably in ClojureScript; frequently in React).
     </p>
     <p className="measure lh-copy">
+      <a className="white underline" href="/cv">My full CV</a> is available online.
+    </p>
+    <p className="measure lh-copy">
       Personally, I ride road bikes and hike; currently I’m teaching myself
       Blender and Unity.
     </p>

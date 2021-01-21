@@ -63,14 +63,14 @@ const IndexPage = () => {
         <h2 className="sans-serif mt0 reset ph3 ph4-m ph4-l normal f5">
           Professional Index
         </h2>
-        <p className="sans-serif ph3 ph4-m ph4-l normal f5">
-          Imagery and guided tour available on request.
+        <p className="sans-serif ph3 ph4-m ph4-l normal f5 mb4">
+          &rarr; Imagery and guided tour available on request.
         </p>
         <div className="dn flex-l ph3 ph4-m ph4-l">
-          <div className={`${textClasses} w-30-l pv2-l`}>Project Name</div>
-          <div className={`${textClasses} w-20-l pv2-l`}>Client</div>
-          <div className={`${textClasses} w-30-l pv2-l`}>Roles</div>
-          <div className={`${textClasses} w-10-l pv2-l pr2-l`}>Start Date</div>
+          <div className={`${textClasses} w-30-l pv2-l mr2 br`}>Project Name</div>
+          <div className={`${textClasses} w-20-l pv2-l mr2 br`}>Client</div>
+          <div className={`${textClasses} w-30-l pv2-l mr2 br`}>Roles</div>
+          <div className={`${textClasses} w-10-l pv2-l mr2 pr2-l br`}>Start Date</div>
           <div className={`${textClasses} w-10-l pv2-l`}>End Date</div>
         </div>
         {projectData.edges.map((edge) => (
