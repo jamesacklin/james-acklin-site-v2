@@ -52,7 +52,21 @@ const IndexPage = () => {
     }
   }, [allData, setProjects]);
 
-  const filterProjects = _.filter(projects, ['node.data.End_Date', null]);
+  const ongoing = _.filter(projects, (project) => {
+    return project.node.data.End_Date === null;
+  });
+
+  const uxDesignOnly = _.filter(projects, (project) => {
+    return _.indexOf(project.node.data.Role_Work, 'UX Designer') !== -1;
+  });
+
+  const fedOnly = _.filter(projects, (project) => {
+    return _.indexOf(project.node.data.Role_Work, 'Web Development') !== -1;
+  });
+
+  const all = projects;
+
+  const filterProjects = all;
 
   const clientData = allData.clients.edges.reduce((acc, value) => {
     const { recordId, data } = value.node;
