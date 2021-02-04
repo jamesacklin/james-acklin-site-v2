@@ -25,10 +25,11 @@ Row.propTypes = {
   children: PropTypes.node,
 };
 
-const roleTagStyle = (role) => {
-  const base = 'sans-serif br-pill ba ph3 pv2 lh-solid mt1 mr1 mr2-l dib f6';
-  switch (role) {
-    case 'UX Designer':
+export const roleTagStyle = ({ active = false }) => {
+  const base =
+    'sans-serif br-pill ba b--black ph3 pv2 lh-solid mt1 mr1 mr2-l dib f6';
+  switch (active) {
+    case true:
       return `${base} white bg-black`;
     default:
       return `${base} black bg-white`;
@@ -41,7 +42,7 @@ const ProjectRow = (props) => {
   const [showDetails, setShowDetails] = useState(false);
   const toggleDetails = () => setShowDetails(!showDetails);
   return (
-    <Row onClick={toggleDetails} classes={showDetails && `row-outline`}>
+    <Row onClick={toggleDetails} className={showDetails && `row-outline`}>
       <div className={`${textClasses} di dn-l`}>
         <TimeAgo datetime={edge.node.data.Start_Date} />
         :&nbsp;
@@ -71,7 +72,7 @@ const ProjectRow = (props) => {
       </div>
       <div className="dn db-l w-30-l pv2-l">
         {edge.node.data.Role_Work.sort().map((role) => (
-          <span className={roleTagStyle(role)} key={role}>
+          <span className={roleTagStyle({ active: false })} key={role}>
             {role}
           </span>
         ))}
