@@ -1,3 +1,3 @@
-I am far too lazy to write a README for this right now.
+A designer, a developer.
 
 → http://ackl.in/
