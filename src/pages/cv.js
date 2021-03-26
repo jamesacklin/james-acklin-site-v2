@@ -104,17 +104,6 @@ const CvPage = () => {
             design.
           </p>
           <h3 className={hed}>
-            Bloomfield Robotics, Front-End Developer (Contract)
-            <br />
-            July 2020 - Present
-          </h3>
-          <p className={job}>
-            Designing and building a client-facing analytics portal in React for
-            crop health and performance assessment in agricultural applications,
-            built atop groundbreaking stereoscopic camera hardware, phenotype ML
-            models, and 3D geospatial positioning.
-          </p>
-          <h3 className={hed}>
             Rhiza, UX Designer &amp; Front-End Developer
             <br />
             November 2013 - May 2015;
