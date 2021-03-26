@@ -34,11 +34,7 @@ const Banner = () => (
       <a className="white underline" href="https://www.smithbrosagency.com/">
         Smith Brothers
       </a>
-      . Occasionally, I still do some compulsory front-end web development
-      (preferably in ClojureScript; frequently in React).
-    </p>
-    <p className="measure lh-copy">
-      <a className="white underline" href="/cv">My full CV</a> is available online.
+      .
     </p>
     <p className="measure lh-copy">
       Personally, I ride road bikes and hike; currently I’m teaching myself
@@ -64,7 +60,6 @@ const Banner = () => (
           GitHub
         </a>
       </li>
-      <li>~rilfun-lidlen</li>
     </ul>
   </div>
 );
