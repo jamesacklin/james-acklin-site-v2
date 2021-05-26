@@ -22,19 +22,19 @@ const Banner = () => (
       >
         Nielsen Global Media
       </a>{' '}
-      (NYC, USA) and media planning software for{' '}
+      (NYC, USA). Before this, I designed media planning software for{' '}
       <a className="white underline" href="https://pointlogic.com/">
         PointLogic
       </a>{' '}
-      (Rotterdam, NL). Before this, I designed mapping software for{' '}
+      (Rotterdam, NL), mapping software for{' '}
       <a className="white underline" href="https://www.rhiza.com/">
         Rhiza
-      </a>{' '}
-      and made frozen food websites for{' '}
+      </a>,{' '}
+      and made CPG websites for{' '}
       <a className="white underline" href="https://www.smithbrosagency.com/">
         Smith Brothers
-      </a>
-      .
+      </a>,{' '}
+      along with a host of other assorted projects, listed and tagged below.
     </p>
     <p className="measure lh-copy">
       Personally, I ride road bikes and hike; currently I’m teaching myself
